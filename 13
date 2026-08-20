@@ -1,0 +1,1234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Help Eboni and Boone rebuild after the August 11 storm in Olde Towne East, Columbus. Find current ways to help, needed items, direct support and updates."
+    />
+
+    <meta property="og:title" content="Help Eboni Rebuild | Olde Towne East" />
+    <meta
+      property="og:description"
+      content="Eboni and Boone made it out safely. The building is now condemned. Here's where things stand and how the community can help."
+    />
+    <meta property="og:image" content="assets/eboni-boone.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Help Eboni Rebuild | Olde Towne East</title>
+    <style>
+      :root {
+        --forest: #173f32;
+        --forest-2: #102b23;
+        --ivory: #f7f3ea;
+        --paper: #fffdf8;
+        --charcoal: #202522;
+        --amber: #d89a3d;
+        --rose: #c98f87;
+        --sage: #71866a;
+        --muted: #756f66;
+        --line: #ddd5c8;
+        --cash: #00d64f;
+        --blue: #e8f2ff;
+        --serif: Georgia, "Times New Roman", serif;
+        --sans:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--ivory);
+        color: var(--charcoal);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      body:has(.menu.open) {
+        overflow: hidden;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      a {
+        color: inherit;
+      }
+      button {
+        font: inherit;
+      }
+      :focus-visible {
+        outline: 3px solid var(--amber);
+        outline-offset: 3px;
+      }
+      .wrap {
+        width: min(1080px, calc(100% - 40px));
+        margin-inline: auto;
+      }
+      .wrap--narrow {
+        width: min(680px, calc(100% - 40px));
+        margin-inline: auto;
+      }
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin: 0 0 12px;
+      }
+      .rule {
+        width: 42px;
+        height: 3px;
+        background: var(--amber);
+        margin: 16px 0 24px;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--serif);
+        line-height: 1.05;
+        margin-top: 0;
+      }
+      h1 {
+        font-size: clamp(48px, 7vw, 82px);
+        letter-spacing: -0.045em;
+        margin-bottom: 22px;
+      }
+      h2 {
+        font-size: clamp(34px, 5vw, 56px);
+        letter-spacing: -0.03em;
+        margin-bottom: 18px;
+      }
+      h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      p {
+        margin: 0 0 16px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 13px 20px;
+        border: 2px solid transparent;
+        border-radius: 2px;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          transform 0.15s,
+          opacity 0.15s,
+          background 0.15s;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        opacity: 0.92;
+      }
+      .btn--forest {
+        background: var(--forest);
+        color: var(--ivory);
+        border-color: var(--forest);
+      }
+      .btn--amber {
+        background: var(--amber);
+        color: var(--charcoal);
+        border-color: var(--amber);
+      }
+      .btn--outline {
+        background: transparent;
+        color: var(--forest);
+        border-color: var(--forest);
+      }
+      .btn--white {
+        background: transparent;
+        color: var(--ivory);
+        border-color: var(--ivory);
+      }
+      .btn--full {
+        width: 100%;
+      }
+      .btn-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+
+      /* NAV */
+      .topbar {
+        background: var(--forest-2);
+        color: rgba(247, 243, 234, 0.82);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 9px 14px;
+      }
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(247, 243, 234, 0.96);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav__inner {
+        height: 66px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .brand {
+        font-family: var(--serif);
+        font-size: 20px;
+        text-decoration: none;
+        white-space: nowrap;
+        color: var(--forest);
+      }
+      .brand span {
+        font-family: var(--sans);
+        font-size: 8px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-left: 5px;
+        color: var(--muted);
+      }
+      .navlinks {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .navlinks a {
+        text-decoration: none;
+      }
+      .navlinks .support {
+        display: inline-flex;
+        align-items: center;
+        background: var(--forest);
+        color: var(--ivory);
+        padding: 10px 14px;
+        border-radius: 2px;
+        transition:
+          transform 0.15s,
+          opacity 0.15s;
+      }
+      .navlinks .support:hover {
+        transform: translateY(-1px);
+        opacity: 0.92;
+      }
+      .menu-btn {
+        display: none;
+        background: none;
+        border: 0;
+        color: var(--forest);
+        font-weight: 900;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .menu {
+        display: none;
+      }
+
+      /* HERO */
+      .hero {
+        background: var(--forest);
+        color: var(--ivory);
+      }
+      .hero__grid {
+        display: grid;
+        grid-template-columns: 1.03fr 0.97fr;
+        min-height: 690px;
+      }
+      .hero__copy {
+        display: flex;
+        align-items: center;
+        padding: 72px 56px 72px 0;
+      }
+      .hero__copy .eyebrow {
+        color: var(--amber);
+      }
+      .hero__copy p {
+        max-width: 580px;
+        font-size: 18px;
+        color: rgba(247, 243, 234, 0.88);
+      }
+      .hero__photo {
+        min-height: 690px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero__photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: saturate(0.94);
+      }
+      .hero__photo:after {
+        content: "Eboni + Boone";
+        position: absolute;
+        left: 18px;
+        bottom: 18px;
+        background: rgba(23, 63, 50, 0.86);
+        padding: 5px 9px;
+        color: var(--ivory);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .hero__trust {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+      .hero__trust span {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: rgba(247, 243, 234, 0.62);
+      }
+
+      /* ONE-WEEK UPDATE */
+      .week {
+        background: #efe0cf;
+        border-bottom: 1px solid var(--line);
+      }
+      .week__inner {
+        display: grid;
+        grid-template-columns: 0.7fr 1.3fr;
+        gap: 42px;
+        align-items: center;
+        padding: 42px 0;
+      }
+      .week h2 {
+        font-size: clamp(32px, 4vw, 50px);
+        margin-bottom: 8px;
+        color: var(--forest);
+      }
+      .week__body {
+        font-size: 17px;
+      }
+
+      /* QUICK HELP */
+      .quick {
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+      .quick__grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1px;
+        background: var(--line);
+      }
+      .quick__item {
+        background: var(--paper);
+        padding: 22px 18px;
+        text-decoration: none;
+      }
+      .quick__item strong {
+        display: block;
+        font-family: var(--serif);
+        font-size: 22px;
+        color: var(--forest);
+        margin-bottom: 4px;
+      }
+      .quick__item span {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      section.block {
+        padding: 88px 0;
+        border-top: 1px solid var(--line);
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 40px;
+        margin-bottom: 36px;
+      }
+      .lede {
+        max-width: 560px;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      /* STORY */
+      .story__grid {
+        display: grid;
+        grid-template-columns: 0.78fr 1.22fr;
+        gap: 80px;
+        align-items: start;
+      }
+      .story__body {
+        font-size: 17px;
+      }
+      .quote {
+        border-left: 3px solid var(--amber);
+        padding: 18px 22px;
+        background: rgba(216, 154, 61, 0.07);
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 21px;
+        line-height: 1.5;
+        margin: 28px 0;
+      }
+      .story__note {
+        font-size: 13px;
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      /* PHOTO GALLERY */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 32px 0;
+      }
+      .gallery__item {
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        aspect-ratio: 4 / 3;
+        background: #d7d0c5;
+      }
+      .gallery__item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.45s ease;
+      }
+      .gallery__item:hover img {
+        transform: scale(1.08);
+      }
+      .gallery__item figcaption {
+        position: absolute;
+        inset: auto 0 0 0;
+        background: linear-gradient(to top, rgba(23, 63, 50, 0.88), transparent);
+        color: var(--ivory);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 28px 10px 10px;
+        opacity: 0;
+        transform: translateY(8px);
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+      }
+      .gallery__item:hover figcaption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* WAYS TO HELP */
+      .help {
+        background: var(--charcoal);
+        color: var(--ivory);
+      }
+      .help .section-head .lede {
+        color: rgba(247, 243, 234, 0.6);
+      }
+      .help__cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .hcard {
+        background: #252525;
+        padding: 28px 22px;
+        display: flex;
+        flex-direction: column;
+        min-height: 430px;
+        border-top: 4px solid var(--forest);
+      }
+      .hcard--give {
+        border-top-color: var(--cash);
+      }
+      .hcard--goods {
+        border-top-color: var(--amber);
+      }
+      .hcard--resource {
+        border-top-color: var(--rose);
+      }
+      .hcard--reach {
+        border-top-color: var(--sage);
+      }
+      .hcard__icon {
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+      .hcard__label {
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--amber);
+        margin-bottom: 16px;
+      }
+      .hcard__body {
+        flex: 1;
+        color: rgba(247, 243, 234, 0.7);
+        font-size: 14px;
+      }
+      .hcard__body strong {
+        color: var(--ivory);
+      }
+      .hcard__list {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0;
+        display: grid;
+        gap: 7px;
+      }
+      .hcard__list li {
+        padding-left: 14px;
+        position: relative;
+      }
+      .hcard__list li:before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--amber);
+      }
+      .hcard__payment {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 14px;
+        margin-top: 12px;
+        display: grid;
+        gap: 5px;
+        font-size: 13px;
+      }
+      .hcard__share {
+        background: rgba(255, 255, 255, 0.04);
+        padding: 14px;
+        margin: 14px 0;
+        font-size: 12px;
+        font-style: italic;
+        line-height: 1.55;
+      }
+      .hcard .btn {
+        margin-top: auto;
+      }
+      .hcard__note {
+        font-size: 11px;
+        color: rgba(247, 243, 234, 0.38);
+        font-style: italic;
+        margin: 10px 0 0;
+      }
+
+      /* AMAZON / NEEDS */
+      .needs {
+        background: rgba(201, 143, 135, 0.08);
+      }
+      .needs__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .need {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-left: 4px solid var(--forest);
+        padding: 20px 22px;
+      }
+      .amazon {
+        margin-top: 28px;
+        background: var(--forest);
+        color: var(--ivory);
+        padding: 32px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 30px;
+        align-items: center;
+      }
+      .amazon h3 {
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+      .amazon p {
+        color: rgba(247, 243, 234, 0.72);
+        margin: 0;
+      }
+
+      /* PHOTOS */
+      .journal__grid {
+        display: grid;
+        grid-template-columns: 1.35fr 0.65fr;
+        grid-template-rows: 270px 270px;
+        gap: 14px;
+      }
+      .journal__photo {
+        position: relative;
+        overflow: hidden;
+        background: #d7d0c5;
+      }
+      .journal__photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .journal__photo--hero {
+        grid-row: 1 / span 2;
+      }
+      .journal__photo span {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        background: rgba(23, 63, 50, 0.85);
+        color: var(--ivory);
+        padding: 4px 8px;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .campaign-preview {
+        margin-top: 34px;
+        border: 1px solid var(--line);
+        background: var(--paper);
+        padding: 10px;
+      }
+      .campaign-preview img {
+        width: 100%;
+        max-height: 520px;
+        object-fit: contain;
+      }
+
+      /* COMMUNITY */
+      .community {
+        background: var(--forest);
+        color: var(--ivory);
+        text-align: center;
+      }
+      .community h2 {
+        font-size: clamp(40px, 6vw, 68px);
+      }
+      .community h2 em {
+        color: var(--amber);
+        font-style: normal;
+      }
+      .community__body {
+        max-width: 680px;
+        margin: auto;
+        font-size: 17px;
+        color: rgba(247, 243, 234, 0.75);
+      }
+      .community__box {
+        max-width: 650px;
+        margin: 34px auto 0;
+        border: 1px solid rgba(216, 154, 61, 0.35);
+        padding: 24px;
+        text-align: left;
+      }
+
+      /* UPDATES */
+      .updates__item {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 32px;
+        padding: 28px 0;
+        border-top: 1px solid var(--line);
+      }
+      .updates__date {
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--amber);
+      }
+      .updates__item h3 {
+        font-family: var(--sans);
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+      .updates__item p {
+        max-width: 720px;
+      }
+
+      /* FINAL CTA */
+      .final {
+        background: var(--forest);
+        color: var(--ivory);
+        text-align: center;
+        padding: 94px 0;
+      }
+      .final h2 {
+        font-size: clamp(42px, 7vw, 72px);
+      }
+      .final p {
+        max-width: 620px;
+        margin: 0 auto;
+        color: rgba(247, 243, 234, 0.72);
+        font-size: 17px;
+      }
+      .final .btn-row {
+        justify-content: center;
+      }
+
+      footer {
+        background: var(--forest-2);
+        color: rgba(247, 243, 234, 0.62);
+        padding: 38px 0 92px;
+        font-size: 12px;
+      }
+      footer strong {
+        color: var(--ivory);
+        font-family: var(--serif);
+        font-size: 20px;
+      }
+      .footer__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+      }
+      .footer__grid a {
+        color: var(--ivory);
+      }
+
+      .mobile-cta {
+        display: none;
+      }
+      @media (max-width: 1020px) {
+        .help__cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .quick__grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .hero__grid {
+          grid-template-columns: 1fr;
+        }
+        .hero__photo {
+          min-height: 480px;
+          order: -1;
+        }
+        .hero__copy {
+          padding: 60px 0;
+        }
+        .week__inner {
+          grid-template-columns: 1fr;
+        }
+        .story__grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
+        .amazon {
+          grid-template-columns: 1fr;
+        }
+        .footer__grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 700px) {
+        .wrap {
+          width: min(100% - 28px, 1080px);
+        }
+        .navlinks {
+          display: none;
+        }
+        .menu-btn {
+          display: block;
+        }
+        .menu.open {
+          display: block;
+          position: absolute;
+          top: 66px;
+          left: 0;
+          right: 0;
+          background: var(--ivory);
+          border-bottom: 1px solid var(--line);
+          padding: 14px;
+        }
+        .menu a {
+          display: block;
+          padding: 12px 14px;
+          text-decoration: none;
+          font-size: 12px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+        }
+        .hero__photo {
+          min-height: 390px;
+        }
+        .hero__copy {
+          padding: 54px 0;
+        }
+        .hero__copy p {
+          font-size: 17px;
+        }
+        .quick__grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .quick__item {
+          padding: 18px 14px;
+        }
+        .quick__item:last-child {
+          grid-column: 1/-1;
+        }
+        .section-head {
+          display: block;
+        }
+        .lede {
+          margin-top: 15px;
+        }
+        .help__cards {
+          grid-template-columns: 1fr;
+        }
+        .hcard {
+          min-height: 0;
+        }
+        .needs__grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery {
+          grid-template-columns: 1fr 1fr;
+        }
+        .journal__grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: 300px 200px 200px;
+        }
+        .journal__photo--hero {
+          grid-row: auto;
+        }
+        .updates__item {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        .footer__grid {
+          grid-template-columns: 1fr;
+        }
+        .mobile-cta {
+          display: block;
+          position: fixed;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 100;
+          background: rgba(247, 243, 234, 0.97);
+          backdrop-filter: blur(10px);
+          border-top: 1px solid var(--line);
+          padding: 9px 12px;
+        }
+        .mobile-cta .btn {
+          width: 100%;
+        }
+        body {
+          padding-bottom: 70px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">OLDE TOWNE EAST • COLUMBUS, OHIO • August 2026</div>
+
+    <div class="nav">
+      <div class="wrap nav__inner">
+        <a class="brand" href="#top">Eboni + Boone's <span>Rebuild</span></a>
+        <nav class="navlinks" aria-label="Primary navigation">
+          <a href="#story">Our Story</a>
+          <a href="#help">Ways to Help</a>
+          <a href="#updates">Updates</a>
+          <a
+            class="support"
+            href="https://gofund.me/d59fe819a"
+            target="_blank"
+            rel="noopener"
+            >Support Eboni + Boone</a
+          >
+        </nav>
+        <button
+          class="menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          onclick="toggleMenu()"
+        >
+          Menu
+        </button>
+      </div>
+      <div id="mobile-menu" class="menu" aria-label="Mobile navigation">
+        <a href="#story" onclick="toggleMenu()">Our Story</a>
+        <a href="#help" onclick="toggleMenu()">Ways to Help</a>
+        <a href="#updates" onclick="toggleMenu()">Updates</a>
+        <a href="https://gofund.me/d59fe819a" target="_blank" rel="noopener"
+          >Support Eboni + Boone</a
+        >
+      </div>
+    </div>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wrap hero__grid">
+          <div class="hero__copy">
+            <div>
+              <p class="eyebrow">August 11, 2026 • Olde Towne East</p>
+              <h1>Help Eboni Rebuild.</h1>
+              <p>
+                On the morning of August 11, an EF-1 tornado tore through south
+                and east Columbus. It ripped the roof off her apartment
+                building, and left her displaced. This page is the fastest way
+                to actually help — no crowdfunding fees, no middlemen, just
+                direct help for Eboni.
+              </p>
+              <div class="btn-row">
+                <a
+                  class="btn btn--amber"
+                  href="https://gofund.me/d59fe819a"
+                  target="_blank"
+                  rel="noopener"
+                  >Support Eboni</a
+                >
+                <a class="btn btn--white" href="#help">Send Help Directly</a>
+              </div>
+              <div class="hero__trust">
+                <span>✓ Eboni + Boone are safe</span>
+                <span>✓ Building condemned</span>
+                <span>✓ Community-led support</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero__photo">
+            <img src="assets/go.jpeg" alt="Eboni with her Cavapoo, Boone" />
+          </div>
+        </div>
+      </section>
+
+      <section class="quick" aria-label="Quick ways to help">
+        <div class="wrap quick__grid">
+          <a
+            class="quick__item"
+            href="https://gofund.me/d59fe819a"
+            target="_blank"
+            rel="noopener"
+            ><strong>GoFundMe</strong><span>Primary support</span></a
+          >
+          <a
+            class="quick__item"
+            href="https://www.amazon.com/dp/B07PCMWTSG"
+            target="_blank"
+            rel="noopener"
+            ><strong>Amazon</strong><span>Send an item</span></a
+          >
+          <a
+            class="quick__item"
+            href="https://cash.app/$eboniunique1"
+            target="_blank"
+            rel="noopener"
+            ><strong>Cash App</strong><span>$eboniunique1</span></a
+          >
+          <a
+            class="quick__item"
+            href="https://venmo.com/u/eboni-partlow"
+            target="_blank"
+            rel="noopener"
+            ><strong>Venmo</strong><span>@eboni-partlow</span></a
+          >
+          <a class="quick__item" href="#share"
+            ><strong>Share</strong><span>Give the story reach</span></a
+          >
+        </div>
+      </section>
+
+      <section id="story" class="block">
+        <div class="wrap story__grid">
+          <div>
+            <p class="eyebrow">Our Story</p>
+            <h2>They made it out. Now comes the rebuilding.</h2>
+          </div>
+          <div class="story__body">
+            <p>
+              August 11, 2026: The Storm That Changed Everything.
+            </p>
+            <p>
+              On the morning of August 11, Eboni and her dog, Boone, were home when a severe storm and tornado tore through Columbus, causing significant damage throughout the neighborhood and to the apartment building they called home.
+            <p>
+              Thankfully, Eboni and Boone made it out safely. But the damage to the building was extensive. City and fire officials ultimately determined that the structure was unsafe, and residents were not permitted to return to their homes.
+            </p>
+            <p>What began as a frightening morning quickly became the reality of losing not only a home, but many of the belongings and everyday comforts that made it one.</p>
+            <p>More Than Just an Apartment</p>
+            <p>For Eboni, Olde Towne East has been more than simply the neighborhood where she lived. It has been a community she has grown to love, champion, and feel deeply connected to. Her apartment became a place of refuge and home, and she hopes that as she rebuilds, she can remain connected to the neighborhood and community that have meant so much to her.</p>
+            <p>Eboni and Boone’s loss is also just one part of a much larger story. Neighbors throughout the area are navigating damage, displacement, loss, and the uncertainty of what comes next.</p>
+            <p>In the middle of all of that, Eboni is beginning the process of rebuilding finding a new home, replacing what was lost, and creating a sense of stability again for herself and Boone.</p>
+
+
+            <div class="quote">
+              “I truly feel surrounded by love, and I don't take that for
+              granted. - Eboni”
+            </div>
+
+            <p>
+              No contribution is too small, and no share is insignificant. Every
+              act of kindness helps Eboni begin to recover and rebuild.
+            </p>
+
+            <div class="gallery" aria-label="Photos of Eboni and Boone">
+              <figure class="gallery__item">
+                <img src="assets/gallery-1.jpg" alt="Describe this photo" />
+                <figcaption>Caption goes here</figcaption>
+              </figure>
+              <figure class="gallery__item">
+                <img src="assets/gallery-2.jpg" alt="Describe this photo" />
+                <figcaption>Caption goes here</figcaption>
+              </figure>
+              <figure class="gallery__item">
+                <img src="assets/gallery-3.jpg" alt="Describe this photo" />
+                <figcaption>Caption goes here</figcaption>
+              </figure>
+            </div>
+
+            <p class="story__note">
+              The focus of this page is Eboni's personal recovery
+              and coordinating practical community support.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="help" class="block help">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Ways to Help</p>
+                <h2>If you are in a position to help.</h2> </br> There are several ways to support Eboni and Boone as they rebuild. </br> Whether you give financially, purchase an item, offer a resource, or simply share this page, every act of support makes a difference.
+            </div>
+            <p class="lede">
+              Money is not the only way to help. Pick what works for you.
+            </p>
+          </div>
+          <div class="help__cards">
+            <article class="hcard hcard--give">
+              <div class="hcard__icon">💚</div>
+              <p class="hcard__label">Give</p>
+              <div class="hcard__body">
+                <p>
+                  Financial contributions will go directly toward Eboni and Boone’s immediate recovery and rebuilding needs, including housing expenses, replacing essential belongings, moving costs, and the many unexpected expenses that come with starting over.
+                </p>
+                <div class="hcard__payment">
+                  <div>Cash App <strong>$eboniunique1</strong></div>
+                  <div>Venmo <strong>@eboni-partlow</strong></div>
+                  <div>Zelle <strong>Ask</strong></div>
+                </div>
+              </div>
+              <a
+                class="btn btn--amber"
+                href="https://gofund.me/d59fe819a"
+                target="_blank"
+                rel="noopener"
+                >Support Eboni & Boone’s GoFundMe →</a
+              >
+              <p class="hcard__note">
+                If you give directly, please verify the handle before sending.
+              </p>
+            </article>
+
+            <article class="hcard hcard--goods">
+              <div class="hcard__icon">📦</div>
+              <p class="hcard__label">Give Goods</p>
+              <div class="hcard__body">
+                <p>
+                  As Eboni prepares for a new home, she has created an Amazon wish list with practical items that will help replace some of what was lost and make a new space feel like home again.
+
+The list will continue to be updated as her needs become clearer throughout the recovery process.
+
+                  <br /><strong
+                    >Don't drop off large or unrequested items without arranging
+                    it first.</strong
+                  >
+                </p>
+              </div>
+              <a
+                class="btn btn--amber"
+                href="https://www.amazon.com/dp/B07PCMWTSG"
+                target="_blank"
+                rel="noopener"
+                >View Eboni & Boone’s Amazon Wish List →</a
+              >
+            </article>
+
+            <article class="hcard hcard--resource">
+              <div class="hcard__icon">🤝</div>
+              <p class="hcard__label">Give Resources</p>
+              <div class="hcard__body">
+                <p>
+                  Can you offer something beyond money or goods?
+                </p>
+                <p>
+                  Support doesn’t always have to be financial. If you have a resource, connection, service, or opportunity that could help with housing, furniture, household essentials, moving, recovery assistance, or rebuilding, Eboni would be grateful to hear from you.
+                </p>
+                <p>
+                  Sometimes the right connection can be just as meaningful as a donation.
+                </p>
+                <ul class="hcard__list">
+                  <li>Pet-friendly temporary housing</li>
+                  <li>Transportation or moving help</li>
+                  <li>Furniture or storage</li>
+                  <li>Useful services or connections</li>
+                  <li>Pet care or boarding</li>
+                </ul>
+                <p><strong>Contact Eboni or Shadé if you can help.</strong></p>
+              </div>
+              <a
+                class="btn btn--amber"
+                href="https://www.instagram.com/p/DcESJuEOjel/"
+                target="_blank"
+                rel="noopener"
+                >Share a Resource →</a
+              >
+            </article>
+
+            <article id="share" class="hcard hcard--reach">
+              <div class="hcard__icon">📲</div>
+              <p class="hcard__label">Give Reach</p>
+              <div class="hcard__body">
+                <p>
+                  <strong>One of the easiest ways to help is simply to share.</strong>
+                  Sharing this page with your friends, family, colleagues, or community helps Eboni and Boone’s story reach people who may be able to give, provide a resource, or make a helpful connection.
+                </p>
+                <div class="hcard__share">
+                  “My friend Eboni and her Cavapoo Boone were impacted by the
+                  August 11 storm in Olde Towne East. Her building is now
+                  condemned. Her community is helping her rebuild. If you can
+                  donate, send an item, offer a resource, or simply share,
+                  please do.”
+                </div>
+              </div>
+              <button
+                class="btn btn--amber"
+                type="button"
+                onclick="sharePage()"
+              >
+                Share Eboni & Boone’s Story →
+              </button>
+              <p class="hcard__note">
+                If you can't give, give this story a little more reach.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="final" id="updates">
+        <div class="wrap wrap--narrow">
+          <p class="eyebrow">Recovery Updates</p>
+          <p class="eyebrow">Help Carry What Comes Next</p>
+          <h2>She made it out.<br />Let's help her rebuild.</h2>
+          <p>
+            This space will be updated along the way—with milestones, photos, gratitude, and glimpses of what rebuilding looks like in real time.
+            <br />
+            Thank you for being part of Eboni and Boone’s village as they find their way home again.
+          </p>
+          <div class="btn-row">
+            <a
+              class="btn btn--amber"
+              href="https://gofund.me/d59fe819a"
+              target="_blank"
+              rel="noopener"
+              >Support Eboni</a
+            ><button class="btn btn--white" type="button" onclick="sharePage()">
+              Share the Page
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer__grid">
+        <div>
+          <strong>Eboni's Rebuild</strong>
+          <p>One storm. Many stories. One community.</p>
+        </div>
+        <div>
+          <p>
+            <strong style="font-family: var(--sans); font-size: 13px"
+              >Direct support</strong
+            >
+          </p>
+          <p>
+            Cash App: <a href="https://cash.app/$eboniunique1">$eboniunique1</a
+            ><br />Venmo:
+            <a href="https://venmo.com/u/eboni-partlow">@eboni-partlow</a>
+          </p>
+        </div>
+        <div>
+          <p>
+            <strong style="font-family: var(--sans); font-size: 13px"
+              >Physical items</strong
+            >
+          </p>
+          <p>Drop-off by arrangement<br />1315 Mt. Vernon Ave., Columbus, OH</p>
+          <p>Built by friends and neighbors, not an organization.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="mobile-cta">
+      <a
+        class="btn btn--amber"
+        href="https://gofund.me/d59fe819a"
+        target="_blank"
+        rel="noopener"
+        >Support Eboni</a
+      >
+    </div>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobile-menu");
+        const btn = document.querySelector(".menu-btn");
+        const open = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+      async function sharePage() {
+        const url = window.location.href;
+        const text =
+          "Help Eboni and Boone rebuild after the August 11 storm in Olde Towne East.";
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: "Help Eboni Rebuild", text, url });
+          } catch (e) {}
+        } else if (navigator.clipboard) {
+          await navigator.clipboard.writeText(url);
+          alert("The campaign link was copied. Thank you for sharing!");
+        } else {
+          window.prompt("Copy the campaign link:", url);
+        }
+      }
+    </script>
+  </body>
+</html>
